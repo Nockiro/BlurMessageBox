@@ -137,9 +137,9 @@ namespace BlurMessageBox
 
             msgBox.InitButtons(Buttons.OK);
 
+            MessageBeep(0);
             ShowForm(msgBox);
 
-            MessageBeep(0);
             return msgBox._buttonResult;
         }
 
@@ -155,9 +155,9 @@ namespace BlurMessageBox
 
             msgBox.InitButtons(Buttons.OK);
 
+            MessageBeep(0);
             ShowForm(msgBox);
 
-            MessageBeep(0);
             return msgBox._buttonResult;
         }
 
@@ -171,9 +171,9 @@ namespace BlurMessageBox
 
             msgBox.Size = msgBox.MessageSize(message, title);
 
+            MessageBeep(0);
             ShowForm(msgBox);
 
-            MessageBeep(0);
             return msgBox._buttonResult;
         }
 
@@ -187,9 +187,9 @@ namespace BlurMessageBox
 
             msgBox.Size = msgBox.MessageSize(message, title);
 
+            MessageBeep(0);
             ShowForm(msgBox);
 
-            MessageBeep(0);
             return msgBox._buttonResult;
         }
 
@@ -231,9 +231,9 @@ namespace BlurMessageBox
             msgBox._timer.Tick += msgBox.timer_Tick;
             msgBox._timer.Start();
 
+            MessageBeep(0);
             ShowForm(msgBox);
 
-            MessageBeep(0);
             return msgBox._buttonResult;
         }
 
@@ -252,9 +252,8 @@ namespace BlurMessageBox
 
             msgBox.Size = msgBox.MessageSize(message, "");
 
-            ShowForm(msgBox);
-
             MessageBeep(0);
+            ShowForm(msgBox);
 
             win.ClearEffect();
 
@@ -278,9 +277,8 @@ namespace BlurMessageBox
 
             msgBox.Size = msgBox.MessageSize(message, title);
 
-            ShowForm(msgBox);
-
             MessageBeep(0);
+            ShowForm(msgBox);
 
             win.ClearEffect();
 
@@ -304,9 +302,8 @@ namespace BlurMessageBox
 
             msgBox.Size = msgBox.MessageSize(message, title);
 
-            ShowForm(msgBox);
-
             MessageBeep(0);
+            ShowForm(msgBox);
 
             win.ClearEffect();
 
@@ -330,16 +327,14 @@ namespace BlurMessageBox
 
             msgBox.Size = msgBox.MessageSize(message, title);
 
-            ShowForm(msgBox);
-
             MessageBeep(0);
+            ShowForm(msgBox);
 
             win.ClearEffect();
 
             return msgBox._buttonResult;
         }
 
-        [DebuggerStepThrough]
         public static DialogResult Show(string message, string title, Buttons buttons, Icons icon, AnimateStyle style, System.Windows.Window win)
         {
             win.ApplyEffect();
@@ -378,9 +373,8 @@ namespace BlurMessageBox
             msgBox._timer.Tick += msgBox.timer_Tick;
             msgBox._timer.Start();
 
-            ShowForm(msgBox);
-
             MessageBeep(0);
+            ShowForm(msgBox);
 
             win.ClearEffect();
 
@@ -623,7 +617,7 @@ namespace BlurMessageBox
             {
                 if (msgBox.IsHandleCreated)
                 {
-                    msgBox.BeginInvoke(new Action(() => msgBox.ShowDialog()));
+                    msgBox.Invoke(new Action(() => msgBox.ShowDialog()));
                 }
             }
         }
